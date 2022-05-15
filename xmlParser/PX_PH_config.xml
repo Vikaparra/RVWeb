@@ -2,7 +2,7 @@
 <sepiaRv xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parameters>
     <root>C:\Users\k\Documents\Unicamp\IC\Coisas do RV\arquivos de mapa\SEPIARV_20200724T13.34.32Z-199-MAIORIGUAL800-MArit-FVect-Matrix\SEPIARV_20200724T13.34.32Z-199-MAIORIGUAL800-MArit-FVect-Matrix</root>
-    <benchmark>TESTEVIKA<benchmark />
+    <benchmark>TESTEVIKA</benchmark>
     <folder2d>Export2D_20200724T13.34.32Z</folder2d>
     <chart>
       <type>PIXELIZATION</type>
@@ -25,6 +25,7 @@
       <property name="PERMKMAIOR800_0.0_M" function="ARITHMETICMEAN" file2d="PERMKMAIOR800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
     </properties>
     <allModels>models.txt</allModels>
+    <highlightedModels />
     <nullBlocks>POR_0.0_DEFAULT_MATRIX_K.csv</nullBlocks>
   </input>
   <output>
