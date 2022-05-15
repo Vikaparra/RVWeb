@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sepiaRv xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <parameters>
+    <root>C:\Users\k\Documents\Unicamp\IC\Coisas do RV\arquivos de mapa\SEPIARV_20200724T13.34.32Z-199-MAIORIGUAL800-MArit-FVect-Matrix\SEPIARV_20200724T13.34.32Z-199-MAIORIGUAL800-MArit-FVect-Matrix</root>
+    <benchmark>TESTEVIKA<benchmark />
+    <folder2d>Export2D_20200724T13.34.32Z</folder2d>
+    <folderDistanceMatrix />
+    <chart>
+      <type>PIXELIZATION</type>
+      <layoutCurve>PEANOHILBERT</layoutCurve>
+    </chart>
+    <clustering xsi:type="XMEANS">
+      <distanceMatrix>FEATVECTORS_PROP</distanceMatrix>
+      <min>2</min>
+      <max>25</max>
+      <iterations>1</iterations>
+    </clustering>
+  </parameters>
+  <input>
+    <properties>
+      <property name="PERMIIGUAL800_0.0_M" function="ARITHMETICMEAN" file2d="PERMIIGUAL800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+      <property name="PERMIMAIOR800_0.0_M" function="ARITHMETICMEAN" file2d="PERMIMAIOR800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+      <property name="PERMJIGUAL800_0.0_M" function="ARITHMETICMEAN" file2d="PERMJIGUAL800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+      <property name="PERMJMAIOR800_0.0_M" function="ARITHMETICMEAN" file2d="PERMJMAIOR800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+      <property name="PERMKIGUAL800_0.0_M" function="ARITHMETICMEAN" file2d="PERMKIGUAL800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+      <property name="PERMKMAIOR800_0.0_M" function="ARITHMETICMEAN" file2d="PERMKMAIOR800_0.0_DEFAULT_MATRIX_K.csv" fileDistanceMatrix="" />
+    </properties>
+    <strategies />
+    <allModels>models.txt</allModels>
+    <highlightedModels />
+    <nullBlocks>POR_0.0_DEFAULT_MATRIX_K.csv</nullBlocks>
+  </input>
+  <output>
+    <png filename="RVCHARTS\[PROP]-[CHART]_[CURVE]_[FUNC]_[CLUSTERING].PNG" height="0" width="0" />
+    <progressFile>progress.txt</progressFile>
+    <logFile>log.txt</logFile>
+  </output>
+</sepiaRv>
