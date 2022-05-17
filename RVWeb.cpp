@@ -10,3 +10,9 @@ int main() {
 	cout << "hello!" << endl; // prints
 	return 0;
 }
+
+class Configuration {
+    private:
+    
+
+};
