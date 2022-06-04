@@ -21,18 +21,12 @@ private:
   std::string property;
 
 public:
-  int getHeader(const std::string &pathToCsv, std::string desiredHeader);
-  void
-  printVector(const std::vector<double> &vector); // Print the generated vector
-  void addToVector(double value)
-  {
-    this->data.push_back(value);
-  } // Add a value to the row
-  std::vector<double>
-  readFile(const std::string &pathToCsv);                // Read the specified file
-  std::vector<double> getVector() { return this->data; } // Getter for row
-  std::vector<double> readSpecificColumn(const std::string &pathToCsv,
-                                         std::string column);
+  int getHeader(const std::string &pathToCsv, std::string desiredHeader);                   // Get the number of the desired column
+  void printVector(const std::vector<double> &vector);                                      // Print the generated vector
+  void addToVector(double value) { this->data.push_back(value); }                           // Add a value to the row
+  std::vector<double> readFile(const std::string &pathToCsv);                               // Read the specified file
+  std::vector<double> getVector() { return this->data; }                                    // Getter for row
+  std::vector<double> readSpecificColumn(const std::string &pathToCsv, std::string column); // Get the desired column
 };
 
 #endif // RESERVOIR_TEST_CSVPARSER_H

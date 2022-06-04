@@ -37,7 +37,6 @@ std::vector<double> CSVParser::readFile(const std::string &pathToCsv)
 
   // Close the file
   input.close();
-
   return getVector();
 }
 
@@ -67,7 +66,7 @@ std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
   int rowNumber = this->getHeader(pathToCsv, column);
   std::ifstream input{pathToCsv};
 
-  // Get rid of the header of the file;
+  // Check if the file is open. If so, get rid of the header of the file;
   !input.is_open() ? throw std::runtime_error("Could not open file")
                    : getline(input, this->line);
 
@@ -75,13 +74,16 @@ std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
   {
     std::istringstream ss{this->line};
     std::vector<double> temp;
-    std::string negative = "-1";
 
     for (int i = 0; i <= rowNumber; i++)
     {
-
-      ss >> this->value >> this->separator;
-      temp.push_back(this->value);
+      // Replace all "NaN" occurrences to -1
+      std::string result;
+      std::getline(ss, result, ';');
+      std::stringstream ss(result);
+      ss >> this->value;
+      result.compare("NaN") == 0 ? temp.push_back(-1)
+                                 : temp.push_back(this->value);
     }
 
     addToVector(temp[rowNumber]);
@@ -89,7 +91,6 @@ std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
   }
 
   input.close();
-
   return getVector();
 }
 
