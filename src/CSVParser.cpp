@@ -1,37 +1,36 @@
 #include "CSVParser.hpp"
+#include <algorithm>
 #include <fstream>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
+#include <limits>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <algorithm>
+// TODO: serialize the vector
 
-std::vector<double> CSVParser::readFile(const std::string &pathToCsv)
-{
+std::vector<double> CSVParser::readFile(const std::string &pathToCsv) {
   std::ifstream input{pathToCsv};
 
   // Check if the file is open
-  if (!input.is_open())
-  {
+  if (!input.is_open()) {
     throw std::runtime_error("Could not open file");
   }
 
-  while (getline(input, this->line, ';'))
-  {
+  while (getline(input, this->line, ';')) {
     std::istringstream iss{this->line};
     std::vector<std::string> results{std::istream_iterator<std::string>(iss),
                                      std::istream_iterator<std::string>()};
+    for (auto &result : results) {
 
-    for (auto &result : results)
-    {
       std::stringstream ss(result);
       ss >> this->value;
-      ss.str() == "NaN" ? addToVector(-1) : addToVector(this->value);
+      ss.str() == "NaN" ? addToVector(std::numeric_limits<double>::quiet_NaN())
+                        : addToVector(this->value);
     }
   }
 
@@ -41,17 +40,14 @@ std::vector<double> CSVParser::readFile(const std::string &pathToCsv)
 }
 
 int CSVParser::getHeader(const std::string &pathToCsv,
-                         std::string desiredHeader)
-{
+                         std::string desiredHeader) {
   std::ifstream input{pathToCsv};
   int count = 0;
 
-  while (getline(input, this->line, ';'))
-  {
+  while (getline(input, this->line, ';')) {
     std::istringstream ss{this->line};
     ss >> this->property;
-    if (this->property.compare(desiredHeader) == 0)
-    {
+    if (this->property.compare(desiredHeader) == 0) {
       return count;
     }
     count++;
@@ -61,8 +57,7 @@ int CSVParser::getHeader(const std::string &pathToCsv,
 }
 
 std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
-                                                  std::string column)
-{
+                                                  std::string column) {
   int rowNumber = this->getHeader(pathToCsv, column);
   std::ifstream input{pathToCsv};
 
@@ -70,20 +65,18 @@ std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
   !input.is_open() ? throw std::runtime_error("Could not open file")
                    : getline(input, this->line);
 
-  while (getline(input, this->line))
-  {
+  while (getline(input, this->line)) {
     std::istringstream ss{this->line};
     std::vector<double> temp;
 
-    for (int i = 0; i <= rowNumber; i++)
-    {
-      // Replace all "NaN" occurrences to -1
+    for (int i = 0; i <= rowNumber; i++) {
       std::string result;
       std::getline(ss, result, ';');
       std::stringstream ss(result);
       ss >> this->value;
-      result.compare("NaN") == 0 ? temp.push_back(-1)
-                                 : temp.push_back(this->value);
+      result.compare("NaN") == 0
+          ? temp.push_back(std::numeric_limits<double>::quiet_NaN())
+          : temp.push_back(this->value);
     }
 
     addToVector(temp[rowNumber]);
@@ -94,10 +87,8 @@ std::vector<double> CSVParser::readSpecificColumn(const std::string &pathToCsv,
   return getVector();
 }
 
-void CSVParser::printVector(const std::vector<double> &vector)
-{
-  for (auto &i : vector)
-  {
+void CSVParser::printVector(const std::vector<double> &vector) {
+  for (auto &i : vector) {
     std::cout << i << " " << std::endl;
   }
   std::cout << std::endl;
