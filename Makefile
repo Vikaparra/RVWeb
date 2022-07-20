@@ -153,6 +153,30 @@ src/CSVParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/CSVParser.cpp.s
 .PHONY : src/CSVParser.cpp.s
 
+src/RVConfig.o: src/RVConfig.cpp.o
+.PHONY : src/RVConfig.o
+
+# target to build an object file
+src/RVConfig.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/RVConfig.cpp.o
+.PHONY : src/RVConfig.cpp.o
+
+src/RVConfig.i: src/RVConfig.cpp.i
+.PHONY : src/RVConfig.i
+
+# target to preprocess a source file
+src/RVConfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/RVConfig.cpp.i
+.PHONY : src/RVConfig.cpp.i
+
+src/RVConfig.s: src/RVConfig.cpp.s
+.PHONY : src/RVConfig.s
+
+# target to generate assembly for a file
+src/RVConfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/RVConfig.cpp.s
+.PHONY : src/RVConfig.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... src/CSVParser.o"
 	@echo "... src/CSVParser.i"
 	@echo "... src/CSVParser.s"
+	@echo "... src/RVConfig.o"
+	@echo "... src/RVConfig.i"
+	@echo "... src/RVConfig.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
