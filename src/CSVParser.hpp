@@ -1,6 +1,7 @@
 //
 // Created by izael on 4/14/22.
 //
+#include "Metadata.hpp"
 #include <fstream>
 #include <iostream>
 #include <memory>
@@ -8,33 +9,29 @@
 #include <string>
 #include <vector>
 
-#ifndef RESERVOIR_TEST_CSVPARSER_H
-#define RESERVOIR_TEST_CSVPARSER_H
+#ifndef RVWEB_CSVPARSER_H
+#define RVWEB_CSVPARSER_H
 
-class CSVParser {
+class CSVParser
+{
 private:
+  Metadata *bf = bf->getInstance();
   char separator;
   double value;
   double *nullValue = NULL;
-  std::vector<double> data;
   std::string line;
-  std::string property;
 
 public:
-  int getHeader(
-      const std::string &pathToCsv,
-      std::string desiredHeader); // Get the number of the desired column
-  void
-  printVector(const std::vector<double> &vector); // Print the generated vector
-  void addToVector(double value) {
-    this->data.push_back(value);
-  } // Add a value to the row
-  std::vector<double>
-  readFile(const std::string &pathToCsv); // Read the specified file
-  std::vector<double> getVector() { return this->data; } // Getter for row
-  std::vector<double>
-  readSpecificColumn(const std::string &pathToCsv,
-                     std::string column); // Get the desired column
+  // Get the number of the desired column
+  int getHeader(const std::string &pathToCsv, std::string desiredHeader);
+  // Print the generated vector
+  void printVector(const std::vector<double> &vector);
+  // Add a value to the row
+  void addToVector(std::vector<double> &vector, double value) { vector.push_back(value); }
+  // Getter for row
+  std::vector<double> getVector(std::vector<double> vector) { return vector; }
+  // Get the desired column
+  void readSpecificColumn(const std::string &pathToCsv, std::string column, std::vector<double> *vector);
 };
 
-#endif // RESERVOIR_TEST_CSVPARSER_H
+#endif // RVWEB_CSVPARSER_H
