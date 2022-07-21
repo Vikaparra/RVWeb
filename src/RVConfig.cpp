@@ -1,4 +1,11 @@
 #include "RVConfig.hpp"
+#include <iostream>
+#include <string>
+#include <vector>
+
+using std::cout;
+using std::endl; using std::string;
+using std::vector;
 
 Configuration::Configuration(char** configs)
 {
@@ -13,9 +20,31 @@ Configuration::Configuration(char** configs)
         this->minClusters = configs[9];
         this->maxClusters = configs[10];
         this->numIterations = configs[11];
-        this->properties = configs[12];
-        this->strategies = configs[13];
+        // this->properties = configs[12];
+        // this->strategies = configs[13];
         this->allModels = configs[14];
         this->hlModels = configs[15];
 
+        this->setStrategies(configs[13]);
+
 };
+
+void Configuration::setStrategies(char* strats){
+        string delim = ", ";
+        vector<string> configs{};
+        string stringStrats(strats);
+        size_t pos = 0;
+
+        stringStrats.erase(0,2);
+        stringStrats.erase(stringStrats.size()-1,2);
+
+        while ((pos = stringStrats.find(delim)) != string::npos) {
+                configs.push_back(stringStrats.substr(0, pos));
+                stringStrats.erase(0, pos + delim.length());
+        }
+
+        for (const auto &w : configs) {
+                cout << w << endl;
+        }
+        //Strategy strategy(configs[0]);
+}

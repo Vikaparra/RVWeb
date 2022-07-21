@@ -78,7 +78,6 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.minClusters,
         self.maxClusters,
         self.iterations,
-        self.strategies,
         self.allModels,
         self.highlightedModels]
         )

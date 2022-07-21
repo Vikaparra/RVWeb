@@ -44,8 +44,8 @@ layout:
                   - prop3 
                   - prop4 
                 strategies: 
-                  - strat
-                  - strat21
-                  - strat2
+                  - strat;;pasta/subpasta/subsubpasta;;
+                  - strat;;21;;
+                  - strat2;;
                 allModels: allmodroot/root 
                 highlightedModels: hogh 
