@@ -34,7 +34,7 @@ layout:
                 chartType: chart 
                 layoutCurve: layoutc 
                 clusteringMethod: clustm 
-                distanceMatrix: distma 
+                distanceMatrix: distmat 
                 minClusters: minc 
                 maxClusters: maxc 
                 iterations: iter 
@@ -43,6 +43,9 @@ layout:
                   - prop2 
                   - prop3 
                   - prop4 
-                strategies: strat 
+                strategies: 
+                  - strat
+                  - strat21
+                  - strat2
                 allModels: allmodroot/root 
                 highlightedModels: hogh 

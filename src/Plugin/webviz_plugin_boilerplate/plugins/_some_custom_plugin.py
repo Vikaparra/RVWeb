@@ -19,7 +19,7 @@ class SomeCustomPlugin(WebvizPluginABC):
         maxClusters: str,
         iterations: str,
         properties: list,
-        strategies: str,
+        strategies: list,
         allModels: str,
     highlightedModels: str) -> None:
 
@@ -42,7 +42,7 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.highlightedModels = highlightedModels
 
         full_path = os.path.realpath(__file__)
-        path = os.path.dirname(full_path) + "//..//..//..//..//foo.exe"
+        path = os.path.dirname(full_path) + "//..//..//..//..//src//foos.exe"
 
         args = [path,
         self.root,
@@ -57,7 +57,7 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.maxClusters,
         self.iterations,
         str(self.properties),
-        self.strategies,
+        str(self.strategies),
         self.allModels,
         self.highlightedModels]
 
