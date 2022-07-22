@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 
+#include <boost/algorithm/string/classification.hpp> // Include boost::for is_any_of
+#include <boost/algorithm/string/split.hpp>
+
 using std::cout;
 using std::endl; using std::string;
 using std::vector;
@@ -30,21 +33,29 @@ Configuration::Configuration(char** configs)
 };
 
 void Configuration::setStrategies(char* strats){
-        string delim = ", ";
-        vector<string> configs{};
+        //separar cada elemento de strats (ainda como char* e aplicar só o delim ";;" pra cada um deles, 
+        //então pra cada um deles criaria um strategy e só depois usa o ";;", algo do tipo)
+        // string delim = ", ";
+        // vector<string> configs{};
         string stringStrats(strats);
-        size_t pos = 0;
+        // size_t pos = 0;
 
-        stringStrats.erase(0,2);
-        stringStrats.erase(stringStrats.size()-1,2);
+        // stringStrats.erase(0,2);
+        // stringStrats.erase(stringStrats.size()-1,2);
 
-        while ((pos = stringStrats.find(delim)) != string::npos) {
-                configs.push_back(stringStrats.substr(0, pos));
-                stringStrats.erase(0, pos + delim.length());
-        }
+        // while ((pos = stringStrats.find(delim)) != string::npos) {
+        //         configs.push_back(stringStrats.substr(0, pos));
+        //         stringStrats.erase(0, pos + delim.length());
+        // }
 
-        for (const auto &w : configs) {
-                cout << w << endl;
-        }
+        // for (const auto &w : configs) {
+        //         cout << w << endl;
+        // }
         //Strategy strategy(configs[0]);
+
+        std::vector<std::string> words;
+        std::string s;
+        boost::split(words, stringStrats, boost::is_any_of("', "), boost::token_compress_on);
+        cout << stringStrats << endl;
+        
 }
