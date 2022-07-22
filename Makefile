@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/izael/Documents/Git/RVWeb
+CMAKE_SOURCE_DIR = C:\Users\k\Documents\Unicamp\IC\ReservoirViewerWeb\RVWeb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/izael/Documents/Git/RVWeb
+CMAKE_BINARY_DIR = C:\Users\k\Documents\Unicamp\IC\ReservoirViewerWeb\RVWeb
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/izael/Documents/Git/RVWeb/CMakeFiles /home/izael/Documents/Git/RVWeb//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /C:\Users\k\Documents\Unicamp\IC\ReservoirViewerWeb\RVWeb/CMakeFiles C:\Users\k\Documents\Unicamp\IC\ReservoirViewerWeb\RVWeb/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/izael/Documents/Git/RVWeb/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\k\Documents\Unicamp\IC\ReservoirViewerWeb\RVWeb 0
 .PHONY : all
 
 # The main clean target

@@ -58,4 +58,5 @@ void Configuration::setStrategies(char* strats){
         boost::split(words, stringStrats, boost::is_any_of("', "), boost::token_compress_on);
         cout << stringStrats << endl;
         
+
 }
