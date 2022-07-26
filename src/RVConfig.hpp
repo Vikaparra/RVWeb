@@ -1,8 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <boost/regex.hpp>
 #include "Property.hpp"
 #include "Strategy.hpp"
+
+using std::cout;
+using std::endl; using std::string;
+using std::vector;
 
 #define RVWEB_RVCONFIG_H
 
@@ -26,7 +31,8 @@ class Configuration {
     public:
         Configuration(char** configs);
         std::string getRoot() { return (this->root); }
-        void setStrategies(char* strats);
+        void regexFirst(char* strats, string type);
+        void regexSecond(string strats, string type);
 
         // void getProperties() { std::cout << (this->properties) << std::endl; }
         // void getStrategies() { std::cout << (this->strategies) << std::endl; }

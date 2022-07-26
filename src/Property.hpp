@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
+using std::string; using std::vector;
 
 class Property {
     private:
@@ -10,7 +13,7 @@ class Property {
         std::string sortingAlgor;
         std::string fileFeatVect;
     public:
-        Property(char* configs);
+        Property(vector<string> sSplit);
         // std::string getRoot() { return (this->root); }
         // void getProperties() { std::cout << (this->properties) << std::endl; }
         // void getStrategies() { std::cout << (this->strategies) << std::endl; }
