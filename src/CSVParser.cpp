@@ -73,3 +73,18 @@ void CSVParser::printVector(const std::vector<double> &vector)
   }
   std::cout << std::endl;
 }
+
+void CSVParser::generate(const std::vector<std::vector<double>> &data)
+{
+  std::ofstream finalCsv("intermediary_file.csv");
+  finalCsv << "I, J, ArithmeticMean" << std::endl;
+  for (int i = 0; i < data[0].size(); i++)
+  {
+    for (int j = 0; j < data.size(); j++)
+    {
+      finalCsv << data[j][i] << ", ";
+    }
+    finalCsv << "\n";
+  }
+  finalCsv.close();
+}

@@ -28,6 +28,7 @@ private:
     ar &maxJ;
   }
 
+  std::vector<std::vector<double>> data;
   std::vector<double> iColumn;
   std::vector<double> jColumn;
   std::vector<double> modelColumn;
@@ -50,6 +51,7 @@ public:
   std::vector<double> getIColumn() { return this->iColumn; }
   std::vector<double> getJColumn() { return this->jColumn; }
   std::vector<double> getModelColumn() { return this->modelColumn; }
+  std::vector<std::vector<double>> getData() { return this->data; }
 
   // Setters
   void setModelColumn(std::vector<double> vector) { this->modelColumn = vector; }
@@ -66,6 +68,7 @@ public:
   }
 
   void setEnsembleName(std::string ensembleName) { this->ensembleName = ensembleName; }
+  void addToMatrix(std::vector<double> &vector) { this->data.push_back(vector); }
 };
 
 #endif

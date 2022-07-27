@@ -32,6 +32,8 @@ public:
   std::vector<double> getVector(std::vector<double> vector) { return vector; }
   // Get the desired column
   void readSpecificColumn(const std::string &pathToCsv, std::string column, std::vector<double> *vector);
+  // Create a new .csv file
+  void generate(const std::vector<std::vector<double>> &data);
 };
 
 #endif // RVWEB_CSVPARSER_H

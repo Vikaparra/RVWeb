@@ -77,3 +77,9 @@ bin/*
 test/test_runner
 intermediary_file.dat
 rvweb
+intermediary_file.csv
+cmake_install.cmake
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+CMakeFiles/CMakeDirectoryInformation.cmake

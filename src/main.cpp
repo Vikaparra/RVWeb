@@ -2,6 +2,7 @@
 #include "Metadata.hpp"
 #include <functional>
 #include <iostream>
+#include <fstream>
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 
@@ -12,33 +13,26 @@ int main(int argc, char *argv[])
   CSVParser csvParser;
   Metadata *bf = bf->getInstance();
   std::string filePath = argv[1];
-  std::string column = argv[2];
+  // std::string column = argv[2];
 
+  std::vector<std::vector<double>> data;
   std::vector<double> vector;
 
-  bf->setEnsembleName("Triage");
-
+  // Tests
   csvParser.readSpecificColumn(filePath, "I", &vector);
-  bf->setIColumn(vector);
-  bf->setMaxI(vector);
+  bf->addToMatrix(vector);
+  vector.clear();
 
   csvParser.readSpecificColumn(filePath, "J", &vector);
-  bf->setJColumn(vector);
-  bf->setMaxJ(vector);
+  bf->addToMatrix(vector);
+  vector.clear();
 
-  csvParser.readSpecificColumn(filePath, "Model", &vector);
-  bf->setModelColumn(vector);
+  csvParser.readSpecificColumn(filePath, "ArithmeticMean", &vector);
+  bf->addToMatrix(vector);
+  vector.clear();
 
-  // csvParser.printVector(vector);
-  std::cout << "This is the last I element: " << bf->getMaxI() << std::endl;
-  std::cout << "This is the last J element: " << bf->getMaxJ() << std::endl;
-
-  std::ofstream ofs("intermediary_file.dat", std::ios::binary);
-
-  {
-    boost::archive::binary_oarchive oa(ofs);
-    oa << bf;
-  }
+  // Generate .csv file
+  csvParser.generate(bf->getData());
 
   return 0;
 };
