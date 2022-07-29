@@ -79,7 +79,7 @@ vector<WellList> Configuration::createWellList()
 }
 
 // LEMBRAR DE MUDAR NOME (PENSAR EM UM NOME DECENTE)
-void Configuration::createEverythingTheUltimateGodFunction(vector<WellList> estrategias)
+void Configuration::settingDrawConfigs(vector<WellList> estrategias)
 {
     for (auto &p : this->properties)
     {
@@ -93,11 +93,27 @@ void Configuration::createEverythingTheUltimateGodFunction(vector<WellList> estr
             string distMatrixFileName = this->clusteringConfig->getDistMatrix();
             string distMatrixPath = this->root + "/" + this->folderDistMatr + "/" + distMatrixFileName;
 
-            //clusteringData = this->clusterConfig.clusterReservoirsMatrixFile(distMatrixPath, false);
+            //Clustering clusteringData = this->clusterConfig.clusterReservoirsMatrixFile(distMatrixPath, false);
             //this->clusterConfig.reorderReservoirByClusters(clusteringData)
-            
-            
 
+        } else if (this->clusteringConfig->distMatrix == "FEATVECTORS_PROP" ){
+
+            // FAZER FILE WRITER
+
+            //string featureVecFile = this->clusteringConfig.createReservoirFeatureVecMatrix();
+            //Clustering clusteringData = this->clusterConfig.clusterReservoirsFeatMatrix(featureVecFile);
+            //this->clusterConfig.reorderReservoirByClusters(clusteringData);
         }
+
+        string chartType = this->layoutCurve;
+
+        if(chartType == "pixelization"){
+
+        } else if (chartType == "smallmultiples"){
+
+        } else{
+            // FAZER ILLEGAL EXCEPTION
+        }
+
     }
 }
