@@ -33,6 +33,7 @@ class Configuration {
         std::string getRoot() { return (this->root); }
         void regexFirst(char* strats, string type);
         void regexSecond(string strats, string type);
+        void addStrategiesWell();
 
         // void getProperties() { std::cout << (this->properties) << std::endl; }
         // void getStrategies() { std::cout << (this->strategies) << std::endl; }
