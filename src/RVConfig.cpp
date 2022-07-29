@@ -78,13 +78,26 @@ vector<WellList> Configuration::createWellList()
     }
 }
 
-//LEMBRAR DE MUDAR NOME (PENSAR EM UM NOME DECENTE)
-void Configuration::createEverythingTheUltimateGodFunction(vector<WellList> estrategias) 
+// LEMBRAR DE MUDAR NOME (PENSAR EM UM NOME DECENTE)
+void Configuration::createEverythingTheUltimateGodFunction(vector<WellList> estrategias)
 {
     for (auto &p : this->properties)
     {
         int meanType = p.convertMeanType();
         // this.loadStaticMapModels(propName, this->root/this->file2d/this->getNullBlocks, meanType);
-        
+        if (this->clusteringConfig->distMatrix == "MODELS3D_ALL_PROP" || this->clusteringConfig->distMatrix == "MODELS3D_PROP")
+        {
+
+            // FAZER FILE WRITER
+
+            string distMatrixFileName = this->clusteringConfig->getDistMatrix();
+            string distMatrixPath = this->root + "/" + this->folderDistMatr + "/" + distMatrixFileName;
+
+            //clusteringData = this->clusterConfig.clusterReservoirsMatrixFile(distMatrixPath, false);
+            //this->clusterConfig.reorderReservoirByClusters(clusteringData)
+            
+            
+
+        }
     }
 }
