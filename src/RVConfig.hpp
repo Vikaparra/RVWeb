@@ -4,37 +4,37 @@
 #include <boost/regex.hpp>
 #include "Property.hpp"
 #include "Strategy.hpp"
+#include "WellList.hpp"
+#include "Clustering.hpp"
 
 using std::cout;
-using std::endl; using std::string;
+using std::endl;
+using std::string;
 using std::vector;
+using std::stoi;
 
 #define RVWEB_RVCONFIG_H
 
-class Configuration {
-    private:
-        std::string root;
-        std::string benchmark;
-        std::string folder2d;
-        std::string folderDistMatr;
-        std::string chartType;
-        std::string layoutCurve;
-        std::string clustMethod;
-        std::string distMatrix;
-        std::string minClusters;
-        std::string maxClusters;
-        std::string numIterations;
-        std::vector<Property> properties;
-        std::vector<Strategy> strategies;
-        std::string allModels;
-        std::string hlModels;
-    public:
-        Configuration(char** configs);
-        std::string getRoot() { return (this->root); }
-        void regexFirst(char* strats, string type);
-        void regexSecond(string strats, string type);
-        void addStrategiesWell();
+class Configuration
+{
+private:
+    string root;
+    string benchmark;
+    string folder2d;
+    string folderDistMatr;
+    string chartType;
+    string layoutCurve;
+    Clustering clusteringConfig(string clustMethod, string distMatrix, int minClusters, int maxClusters,int numIterations);
+    vector<Property> properties;
+    vector<Strategy> strategies;
+    string allModels;
+    string hlModels;
 
-        // void getProperties() { std::cout << (this->properties) << std::endl; }
-        // void getStrategies() { std::cout << (this->strategies) << std::endl; }
+public:
+    Configuration(char **configs);
+    string getRoot() { return (this->root); }
+    void regexFirst(char *strats, string type);
+    void regexSecond(string strats, string type);
+    vector<WellList> createWellList();
+    void createEverythingTheUltimateGodFunction(vector<WellList> estrategias);
 };

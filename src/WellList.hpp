@@ -3,14 +3,19 @@
 #include <vector>
 #include "Well.hpp"
 #include <fstream>
+#include <set>
 
-using std::string; using std::vector; using std::ifstream;
+using std::ifstream;
+using std::string;
+using std::vector;
 
-class WellList : private vector<Well>  {
-    private:
-        string strategyName;
-        vector<Well> wellList;
-    public:
-        WellList(string strategyName, vector<Well> wellList, string path);
-        void loadFile(string path);
+class WellList : private Well
+{
+private:
+    string strategyName;
+    vector<Well> wellList;
+
+public:
+    WellList(string strategyName);
+    void loadFile(string path);
 };

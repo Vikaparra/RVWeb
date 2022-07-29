@@ -1,9 +1,9 @@
 #include "IJKkey.hpp"
 
-IJKKey::IJKKey(vector<string> sSplit)
+IJKKey::IJKKey(string property, int i, int j, int model)
 {
-    this->property = "teste";
-    this->i = 1;
-    this->j = 2;
-    this->k = 3;
+    this->property = "property";
+    this->i = i;
+    this->j = j;
+    this->k = model;
 };
