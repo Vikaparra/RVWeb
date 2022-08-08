@@ -36,5 +36,5 @@ public:
     void regexFirst(char *strats, string type);
     void regexSecond(string strats, string type);
     vector<WellList> createWellList();
-    void createEverythingTheUltimateGodFunction(vector<WellList> estrategias);
+    void settingDrawConfigs(vector<WellList> estrategias);
 };
