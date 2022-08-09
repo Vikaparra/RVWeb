@@ -35,7 +35,6 @@
 *.app
 RVWeb.exe
 src/main
-src/IJKKey.hpp
 
 # CMake
 CMakeLists.txt.user
