@@ -1,5 +1,4 @@
 #include "WellList.hpp"
-#include <boost/algorithm/string.hpp>
 
 #include <type_traits>
 
@@ -15,14 +14,14 @@ void WellList::loadFile(string path)
     string wellName;
     string wellType;
     string line;
-    Well well;
+    Well well;  // CONSERTAR
     Well *nullWell = &well;
     nullWell = NULL;
 
     while (getline(input, line, ';'))
     {
         boost::split(values, line, boost::is_any_of(";"));
-        if (line._Starts_with("PRD") || line._Starts_with("INJ") || line._Starts_with("PRODUCER") || line._Starts_with("INJECTOR"))
+        if (starts_with(line, "PRD") || starts_with(line, "INJ") || starts_with(line, "PRODUCER") || starts_with(line, "INJECTOR"))
         {
             wellName = values[1];
             wellType = values[0];

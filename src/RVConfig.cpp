@@ -1,6 +1,6 @@
 #include "RVConfig.hpp"
 
-Configuration::Configuration(char **configs)
+Configuration::Configuration(char **configs): clusteringConfig(configs[7],configs[8],stoi(configs[9]),stoi(configs[10]),stoi(configs[7]))
 {
     this->root = configs[1];
     this->benchmark = configs[2];
@@ -15,8 +15,6 @@ Configuration::Configuration(char **configs)
     int numIterations = stoi(configs[11]);
     this->allModels = configs[14];
     this->hlModels = configs[15];
-
-    this->clusteringConfig(clustMethod, distMatrix, minClusters, maxClusters, numIterations);
 
     this->regexFirst(configs[12], "Property");
     this->regexFirst(configs[13], "Strategy");
@@ -76,6 +74,8 @@ vector<WellList> Configuration::createWellList()
             estrategias[i].loadFile(path);
         }
     }
+
+    return estrategias;
 }
 
 // LEMBRAR DE MUDAR NOME (PENSAR EM UM NOME DECENTE)
@@ -83,20 +83,19 @@ void Configuration::settingDrawConfigs(vector<WellList> estrategias)
 {
     for (auto &p : this->properties)
     {
+        string distMatrixFileName = this->clusteringConfig.getDistMatrix();
         int meanType = p.convertMeanType();
         // this.loadStaticMapModels(propName, this->root/this->file2d/this->getNullBlocks, meanType);
-        if (this->clusteringConfig->distMatrix == "MODELS3D_ALL_PROP" || this->clusteringConfig->distMatrix == "MODELS3D_PROP")
+        if (distMatrixFileName == "MODELS3D_ALL_PROP" || distMatrixFileName == "MODELS3D_PROP")
         {
 
             // FAZER FILE WRITER
-
-            string distMatrixFileName = this->clusteringConfig->getDistMatrix();
             string distMatrixPath = this->root + "/" + this->folderDistMatr + "/" + distMatrixFileName;
 
             //Clustering clusteringData = this->clusterConfig.clusterReservoirsMatrixFile(distMatrixPath, false);
             //this->clusterConfig.reorderReservoirByClusters(clusteringData)
 
-        } else if (this->clusteringConfig->distMatrix == "FEATVECTORS_PROP" ){
+        } else if (distMatrixFileName == "FEATVECTORS_PROP" ){
 
             // FAZER FILE WRITER
 
