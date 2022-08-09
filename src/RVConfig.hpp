@@ -24,15 +24,15 @@ private:
     string folderDistMatr;
     string chartType;
     string layoutCurve;
-    Clustering clusteringConfig(string clustMethod, string distMatrix, int minClusters, int maxClusters,int numIterations);
     vector<Property> properties;
     vector<Strategy> strategies;
     string allModels;
     string hlModels;
 
 public:
+    Clustering clusteringConfig;
     Configuration(char **configs);
-    string getRoot() { return (this->root); }
+    string getRoot() { return ( root ); }
     void regexFirst(char *strats, string type);
     void regexSecond(string strats, string type);
     vector<WellList> createWellList();
