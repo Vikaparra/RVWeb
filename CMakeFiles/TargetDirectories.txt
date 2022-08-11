@@ -1,3 +1,0 @@
-/home/izael/Documents/git/RVWeb/CMakeFiles/rvweb.dir
-/home/izael/Documents/git/RVWeb/CMakeFiles/edit_cache.dir
-/home/izael/Documents/git/RVWeb/CMakeFiles/rebuild_cache.dir

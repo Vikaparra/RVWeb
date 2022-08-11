@@ -35,10 +35,8 @@
 *.app
 RVWeb.exe
 src/main
-src/IJKKey.hpp
 
 # CMake
-CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -53,12 +51,20 @@ _deps
 **/CMakeCache.txt
 **/cmake_install.cmake
 **/install_manifest.txt
-**/CMakeFiles/
+**/CMakeFiles
 **/CTestTestfile.cmake
 **/Makefile
 **/*.cbp
 **/CMakeScripts
 **/compile_commands.json
+*.vcxproj
+*.filters
+*.sln
+*.proj
+**/x64
+**/Debug
+**/RVWeb.dir
+**/build
 
 include/divisible/*
 

@@ -1,38 +1,73 @@
+<<<<<<< Updated upstream
+// Your First C++ Program a
+#include "RVConfig.hpp"
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <fstream>
+=======
+#include "AbstractCurve.hpp"
 #include "CSVParser.hpp"
 #include "Metadata.hpp"
-#include <functional>
-#include <iostream>
-#include <fstream>
-#include <boost/archive/binary_oarchive.hpp>
+#include "SnakeCurve.hpp"
 #include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <fstream>
+#include <functional>
+>>>>>>> Stashed changes
+#include <iostream>
 
 Metadata *Metadata::instance = 0;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
+<<<<<<< Updated upstream
   CSVParser csvParser;
   Metadata *bf = bf->getInstance();
   std::string filePath = argv[1];
   // std::string column = argv[2];
+=======
+  SnakeCurve snake{atoi(argv[1])};
+>>>>>>> Stashed changes
 
-  std::vector<std::vector<double>> data;
-  std::vector<double> vector;
+  std::vector<std::vector<double>> vector = {
+      {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 
-  // Tests
-  csvParser.readSpecificColumn(filePath, "I", &vector);
-  bf->addToMatrix(vector);
-  vector.clear();
+  snake.generateTraversedMatrix(vector);
 
-  csvParser.readSpecificColumn(filePath, "J", &vector);
-  bf->addToMatrix(vector);
-  vector.clear();
+  for (int i = 0; i < snake.getDimension().getX(); i++) {
+    for (int j = 0; j < snake.getDimension().getX(); j++) {
+      std::cout << vector.at(i).at(j) << " ";
+    }
+    std::cout << std::endl;
+  }
+  // CSVParser csvParser{argv[1]};
+  // std::vector<std::string> headers = {"I", "J", "Max", "Sum"};
+  // std::vector<std::vector<double>>
+  //     matrix; // std::vector<int> data = csvParser.getHeader(headers);
 
-  csvParser.readSpecificColumn(filePath, "ArithmeticMean", &vector);
-  bf->addToMatrix(vector);
-  vector.clear();
+  // Metadata *bf = bf->getInstance();
+  // // std::string filePath = argv[1];
+  // // // std::string column = argv[2];
 
-  // Generate .csv file
-  csvParser.generate(bf->getData());
+  // std::vector<std::vector<double>> data;
+  // std::vector<double> vector;
+  // csvParser.readSpecificColumn(headers, &matrix);
+
+  // // // Tests
+  // csvParser.readSpecificColumn("I", &vector);
+  // bf->addToMatrix(vector);
+  // vector.clear();
+
+  // csvParser.readSpecificColumn("J", &vector);
+  // bf->addToMatrix(vector);
+  // vector.clear();
+
+  // csvParser.readSpecificColumn("ArithmeticMean", &vector);
+  // bf->addToMatrix(vector);
+  // vector.clear();
+
+  // // // Generate .csv file
+  // csvParser.generate(bf->getData());
+  // csvParser.generate(matrix);
 
   return 0;
-};
+}

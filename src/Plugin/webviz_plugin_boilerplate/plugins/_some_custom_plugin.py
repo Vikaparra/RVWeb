@@ -42,7 +42,7 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.highlightedModels = highlightedModels
 
         full_path = os.path.realpath(__file__)
-        path = os.path.dirname(full_path) + "//..//..//..//..//src//foos.exe"
+        path = os.path.dirname(full_path) + "//..//..//..//..//Debug//RVWeb.exe"
 
         args = [path,
         self.root,

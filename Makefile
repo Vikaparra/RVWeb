@@ -177,6 +177,30 @@ src/RVConfig.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/RVConfig.cpp.s
 .PHONY : src/RVConfig.cpp.s
 
+src/SnakeCurve.o: src/SnakeCurve.cpp.o
+.PHONY : src/SnakeCurve.o
+
+# target to build an object file
+src/SnakeCurve.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.o
+.PHONY : src/SnakeCurve.cpp.o
+
+src/SnakeCurve.i: src/SnakeCurve.cpp.i
+.PHONY : src/SnakeCurve.i
+
+# target to preprocess a source file
+src/SnakeCurve.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.i
+.PHONY : src/SnakeCurve.cpp.i
+
+src/SnakeCurve.s: src/SnakeCurve.cpp.s
+.PHONY : src/SnakeCurve.s
+
+# target to generate assembly for a file
+src/SnakeCurve.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.s
+.PHONY : src/SnakeCurve.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/RVConfig.o"
 	@echo "... src/RVConfig.i"
 	@echo "... src/RVConfig.s"
+	@echo "... src/SnakeCurve.o"
+	@echo "... src/SnakeCurve.i"
+	@echo "... src/SnakeCurve.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

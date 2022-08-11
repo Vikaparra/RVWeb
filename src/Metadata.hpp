@@ -33,8 +33,8 @@ private:
   std::vector<double> jColumn;
   std::vector<double> modelColumn;
   std::string ensembleName;
-  int maxI;
-  int maxJ;
+  int maxI = iColumn.size() - 1;
+  int maxJ = jColumn.size() - 1;
 
 public:
   static Metadata *getInstance()
@@ -57,16 +57,6 @@ public:
   void setModelColumn(std::vector<double> vector) { this->modelColumn = vector; }
   void setIColumn(std::vector<double> vector) { this->iColumn = vector; }
   void setJColumn(std::vector<double> vector) { this->jColumn = vector; }
-  void setMaxI(std::vector<double> &vector)
-  {
-    this->maxI = vector[vector.size() - 1];
-  }
-
-  void setMaxJ(std::vector<double> &vector)
-  {
-    this->maxJ = vector[vector.size() - 1];
-  }
-
   void setEnsembleName(std::string ensembleName) { this->ensembleName = ensembleName; }
   void addToMatrix(std::vector<double> &vector) { this->data.push_back(vector); }
 };

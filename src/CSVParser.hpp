@@ -12,26 +12,31 @@
 #ifndef RVWEB_CSVPARSER_H
 #define RVWEB_CSVPARSER_H
 
-class CSVParser
-{
+class CSVParser {
 private:
   Metadata *bf = bf->getInstance();
-  char separator;
-  double value;
-  double *nullValue = NULL;
+  std::string path;
   std::string line;
+  char separator;
+  double *nullValue = NULL;
+  double value;
 
 public:
+  CSVParser(std::string path, char separator = ';') {
+    this->path = path;
+    this->separator = separator;
+  }
+
   // Get the number of the desired column
-  int getHeader(const std::string &pathToCsv, std::string desiredHeader);
-  // Print the generated vector
-  void printVector(const std::vector<double> &vector);
-  // Add a value to the row
-  void addToVector(std::vector<double> &vector, double value) { vector.push_back(value); }
-  // Getter for row
-  std::vector<double> getVector(std::vector<double> vector) { return vector; }
+  std::vector<int> getHeader(const std::vector<std::string> &desiredHeaders);
+
+  // Get path
+  std::string getPath() { return this->path; }
+
   // Get the desired column
-  void readSpecificColumn(const std::string &pathToCsv, std::string column, std::vector<double> *vector);
+  void readSpecificColumn(std::vector<std::string> &column,
+                          std::vector<std::vector<double>> *vector);
+
   // Create a new .csv file
   void generate(const std::vector<std::vector<double>> &data);
 };

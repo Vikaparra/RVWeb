@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rvweb.dir/src/CSVParser.cpp.o.d"
   "CMakeFiles/rvweb.dir/src/RVConfig.cpp.o"
   "CMakeFiles/rvweb.dir/src/RVConfig.cpp.o.d"
+  "CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.o"
+  "CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.o.d"
   "CMakeFiles/rvweb.dir/src/main.cpp.o"
   "CMakeFiles/rvweb.dir/src/main.cpp.o.d"
   "rvweb"
