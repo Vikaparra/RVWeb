@@ -1,32 +1,18 @@
-<<<<<<< Updated upstream
-// Your First C++ Program a
-#include "RVConfig.hpp"
-#include <boost/archive/binary_iarchive.hpp>
-#include <boost/archive/binary_oarchive.hpp>
-#include <fstream>
-=======
 #include "AbstractCurve.hpp"
 #include "CSVParser.hpp"
 #include "Metadata.hpp"
 #include "SnakeCurve.hpp"
-#include <boost/archive/binary_iarchive.hpp>
-#include <boost/archive/binary_oarchive.hpp>
 #include <fstream>
 #include <functional>
->>>>>>> Stashed changes
 #include <iostream>
 
 Metadata *Metadata::instance = 0;
 
 int main(int argc, char *argv[]) {
-<<<<<<< Updated upstream
-  CSVParser csvParser;
+  CSVParser csvParser{argv[1]};
   Metadata *bf = bf->getInstance();
   std::string filePath = argv[1];
-  // std::string column = argv[2];
-=======
   SnakeCurve snake{atoi(argv[1])};
->>>>>>> Stashed changes
 
   std::vector<std::vector<double>> vector = {
       {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
