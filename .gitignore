@@ -36,40 +36,11 @@
 RVWeb.exe
 src/main
 
-# CMake
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-**/cmake-build-debug
-**/CMakeCache.txt
-**/cmake_install.cmake
-**/install_manifest.txt
-**/CMakeFiles
-**/CTestTestfile.cmake
-**/Makefile
-**/*.cbp
-**/CMakeScripts
-**/compile_commands.json
-*.vcxproj
-*.filters
-*.sln
-*.proj
-**/x64
-**/Debug
-**/RVWeb.dir
-**/build
-
-include/divisible/*
-
-
 ## Local 
+
+.cmake
+
+CMakeFiles/
 
 test/
 
@@ -84,8 +55,3 @@ test/test_runner
 intermediary_file.dat
 rvweb
 intermediary_file.csv
-cmake_install.cmake
-cmake_install.cmake
-CMakeCache.txt
-Makefile
-CMakeFiles/CMakeDirectoryInformation.cmake
