@@ -1,10 +1,5 @@
 #include "SnakeCurve.hpp"
 
-Dimension SnakeCurve::defineDimension(int numberOfElements) {
-  int value = std::ceil(std::sqrt(numberOfElements));
-  return Dimension(value, value);
-}
-
 std::vector<std::vector<double>> SnakeCurve::generateTraversedMatrix(
     std::vector<std::vector<double>> &originalMatrix) {
   for (int i = 0; i < this->dimension.getX(); i++) {

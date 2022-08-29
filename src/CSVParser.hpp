@@ -2,10 +2,16 @@
 // Created by izael on 4/14/22.
 //
 #include "Metadata.hpp"
+#include <algorithm>
 #include <fstream>
+#include <functional>
 #include <iostream>
+#include <iterator>
+#include <limits>
+#include <map>
 #include <memory>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -25,20 +31,25 @@ public:
   CSVParser(std::string path, char separator = ';') {
     this->path = path;
     this->separator = separator;
+    bf->setIColumn(this->readSpecificColumn("I"));
+    bf->setJColumn(this->readSpecificColumn("J"));
+    bf->setModelColumn(this->readSpecificColumn("Model"));
   }
-
-  // Get the number of the desired column
-  std::vector<int> getHeader(const std::vector<std::string> &desiredHeaders);
 
   // Get path
   std::string getPath() { return this->path; }
 
+  // Get the number of the desired column
+  int getHeader(std::string desiredProperty);
+
   // Get the desired column
-  void readSpecificColumn(std::vector<std::string> &column,
-                          std::vector<std::vector<double>> *vector);
+  std::vector<double> readSpecificColumn(std::string column);
 
   // Create a new .csv file
-  void generate(const std::vector<std::vector<double>> &data);
+  void generate(const std::vector<double> &data);
+
+  // Map
+  // std::map<int, std::vector<double>> generateMap();
 };
 
 #endif // RVWEB_CSVPARSER_H

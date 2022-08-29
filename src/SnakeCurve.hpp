@@ -16,7 +16,7 @@ public:
       : numberOfElements{numberOfElements}, dimension{dimension} {}
 
   Dimension getDimension() { return this->dimension; }
-  Dimension defineDimension(int numberOfElements);
+  Dimension defineDimension(int size) { return Dimension(size, size); };
 
   std::vector<std::vector<double>>
   generateTraversedMatrix(std::vector<std::vector<double>> &originalMatrix);

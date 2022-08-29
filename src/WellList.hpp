@@ -1,23 +1,22 @@
+#include "Well.hpp"
+#include <boost/algorithm/string.hpp>
+#include <fstream>
 #include <iostream>
+#include <set>
 #include <string>
 #include <vector>
-#include "Well.hpp"
-#include <fstream>
-#include <set>
-#include <boost/algorithm/string.hpp>
 
+using boost::starts_with;
 using std::ifstream;
 using std::string;
 using std::vector;
-using boost::starts_with;
 
-class WellList
-{
+class WellList {
 private:
-    string strategyName;
-    vector<Well> wellList;
+  string strategyName;
+  vector<Well> wellList;
 
 public:
-    WellList(string strategyName);
-    void loadFile(string path);
+  WellList(string strategyName);
+  void loadFile(string path);
 };
