@@ -1,11 +1,11 @@
 #include "CSVParser.hpp"
 
 int CSVParser::getHeader(std::string desiredProperty) {
-  std::ifstream input{this->path};
-  std::string property;
-  std::string line;
   int count = 0;
+  std::string line;
+  std::string property;
 
+  std::ifstream input{this->path};
   getline(input, line);
   std::istringstream ss{line};
 
@@ -17,18 +17,21 @@ int CSVParser::getHeader(std::string desiredProperty) {
     count++;
   }
 
-  return -1;
+  return std::numeric_limits<int>::quiet_NaN();
 }
 
 std::vector<double> CSVParser::readSpecificColumn(std::string column) {
 
-  std::vector<double> vector;
-
   int rowNumber = this->getHeader(column);
+  double value;
+  std::string line;
+  std::vector<double> vectorOfColumn;
+
   std::ifstream input{this->path};
 
   // Check if the file is open. If so, get rid of the header of the file;
-  !input.is_open() ? throw std::runtime_error("Could not open file")
+  !input.is_open() ? throw std::runtime_error(
+                         "Could not open file. This is a CSVParser error.")
                    : getline(input, line);
 
   while (getline(input, line)) {
@@ -39,24 +42,25 @@ std::vector<double> CSVParser::readSpecificColumn(std::string column) {
       std::string result;
       std::getline(ss, result, this->separator);
       std::stringstream ss(result);
-      ss >> this->value;
+      ss >> value;
+
       result.compare("NaN") == 0
           ? temp.push_back(std::numeric_limits<double>::quiet_NaN())
-          : temp.push_back(this->value);
+          : temp.push_back(value);
     }
-    vector.push_back(temp[rowNumber]);
+    vectorOfColumn.push_back(temp.at(rowNumber));
     temp.clear();
   }
 
   input.close();
-  return vector;
+  return vectorOfColumn;
 }
 
 void CSVParser::generate(const std::vector<double> &data) {
-  std::ofstream finalCsv("intermediary_file.csv");
-  finalCsv << bf->getProperty() << std::endl;
-  for (int i = 0; i < data.size(); i++) {
-    finalCsv << data[i] << "\n";
+  std::ofstream intermediaryCsv("test/intermediary_file.csv");
+  intermediaryCsv << bf->getProperty() << std::endl;
+  for (const auto &value : data) {
+    intermediaryCsv << value << "\n";
   }
-  finalCsv.close();
+  intermediaryCsv.close();
 }

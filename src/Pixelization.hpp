@@ -1,8 +1,10 @@
+//#include "Curves/SnakeCurve.hpp"
 #include "Metadata.hpp"
-#include "SnakeCurve.hpp"
 #include <array>
+#include <fstream>
 #include <iostream>
 #include <iterator>
+#include <sstream>
 #include <vector>
 
 #ifndef RVWEB_PIXELIZATION_H
@@ -11,14 +13,14 @@
 class Pixelization {
 private:
   Metadata *bf = bf->getInstance();
-  AbstractCurve curve;
+  // AbstractCurve curve;
   std::vector<std::vector<double>> pixelizatedMatrix;
 
 public:
   void setCurve(std::string curve);
-  // std::vector<std::vector<double>>
-  std::map<int, std::vector<double>>
-  generatePixelizatedMatrix(std::map<int, std::vector<double>> data);
+  void generatePixelizatedMatrix(
+      std::vector<std::vector<std::vector<double>>> &data);
+  void generateFinalFile(std::map<int, std::vector<double>> &map);
 };
 
 #endif

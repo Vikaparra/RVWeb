@@ -273,30 +273,6 @@ src/Property.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/Property.cpp.s
 .PHONY : src/Property.cpp.s
 
-src/SnakeCurve.o: src/SnakeCurve.cpp.o
-.PHONY : src/SnakeCurve.o
-
-# target to build an object file
-src/SnakeCurve.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.o
-.PHONY : src/SnakeCurve.cpp.o
-
-src/SnakeCurve.i: src/SnakeCurve.cpp.i
-.PHONY : src/SnakeCurve.i
-
-# target to preprocess a source file
-src/SnakeCurve.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.i
-.PHONY : src/SnakeCurve.cpp.i
-
-src/SnakeCurve.s: src/SnakeCurve.cpp.s
-.PHONY : src/SnakeCurve.s
-
-# target to generate assembly for a file
-src/SnakeCurve.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rvweb.dir/build.make CMakeFiles/rvweb.dir/src/SnakeCurve.cpp.s
-.PHONY : src/SnakeCurve.cpp.s
-
 src/Strategy.o: src/Strategy.cpp.o
 .PHONY : src/Strategy.o
 
@@ -372,9 +348,6 @@ help:
 	@echo "... src/Property.o"
 	@echo "... src/Property.i"
 	@echo "... src/Property.s"
-	@echo "... src/SnakeCurve.o"
-	@echo "... src/SnakeCurve.i"
-	@echo "... src/SnakeCurve.s"
 	@echo "... src/Strategy.o"
 	@echo "... src/Strategy.i"
 	@echo "... src/Strategy.s"

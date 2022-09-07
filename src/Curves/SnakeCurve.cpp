@@ -1,6 +1,6 @@
 #include "SnakeCurve.hpp"
 
-std::vector<std::vector<double>> SnakeCurve::generateTraversedMatrix(
+std::vector<std::vector<double>> AbstractCurve::generateTraversedMatrix(
     std::vector<std::vector<double>> &originalMatrix) {
   for (int i = 0; i < this->dimension.getX(); i++) {
     if (i % 2 != 0) {

@@ -21,11 +21,8 @@
 class CSVParser {
 private:
   Metadata *bf = bf->getInstance();
-  std::string path;
-  std::string line;
   char separator;
-  double *nullValue = NULL;
-  double value;
+  std::string path;
 
 public:
   CSVParser(std::string path, char separator = ';') {
@@ -36,17 +33,10 @@ public:
     bf->setModelColumn(this->readSpecificColumn("Model"));
   }
 
-  // Get path
-  std::string getPath() { return this->path; }
-
-  // Get the number of the desired column
   int getHeader(std::string desiredProperty);
-
-  // Get the desired column
-  std::vector<double> readSpecificColumn(std::string column);
-
-  // Create a new .csv file
   void generate(const std::vector<double> &data);
+  std::string getPath() { return this->path; }
+  std::vector<double> readSpecificColumn(std::string column);
 
   // Map
   // std::map<int, std::vector<double>> generateMap();
