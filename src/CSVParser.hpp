@@ -20,7 +20,7 @@
 
 class CSVParser {
 private:
-  Metadata *bf = bf->getInstance();
+  Metadata *metadata = metadata->getInstance();
   std::string path;
   std::string line;
   char separator;
@@ -31,9 +31,9 @@ public:
   CSVParser(std::string path, char separator = ';') {
     this->path = path;
     this->separator = separator;
-    bf->setIColumn(this->readSpecificColumn("I"));
-    bf->setJColumn(this->readSpecificColumn("J"));
-    bf->setModelColumn(this->readSpecificColumn("Model"));
+    metadata->setIColumn(this->readSpecificColumn("I"));
+    metadata->setJColumn(this->readSpecificColumn("J"));
+    metadata->setModelColumn(this->readSpecificColumn("Model"));
   }
 
   // Get path
@@ -47,9 +47,6 @@ public:
 
   // Create a new .csv file
   void generate(const std::vector<double> &data);
-
-  // Map
-  // std::map<int, std::vector<double>> generateMap();
 };
 
 #endif // RVWEB_CSVPARSER_H

@@ -11,7 +11,7 @@ int CSVParser::getHeader(std::string desiredProperty) {
 
   while (getline(ss, property, this->separator)) {
     if (property.compare(desiredProperty) == 0) {
-      bf->setPropertyName(property);
+      metadata->setPropertyName(property);
       return count;
     }
     count++;
@@ -54,7 +54,9 @@ std::vector<double> CSVParser::readSpecificColumn(std::string column) {
 
 void CSVParser::generate(const std::vector<double> &data) {
   std::ofstream finalCsv("intermediary_file.csv");
-  finalCsv << bf->getProperty() << std::endl;
+  finalCsv << metadata->getMaxI() << ',' << metadata->getMaxJ() << ','
+           << metadata->getMaxModel() << std::endl;
+  finalCsv << metadata->getProperty() << std::endl;
   for (int i = 0; i < data.size(); i++) {
     finalCsv << data[i] << "\n";
   }
