@@ -2,6 +2,7 @@ from dash import html
 import subprocess as sub
 from webviz_config import WebvizPluginABC
 import os
+from RVConfig import Configuration
 
 
 class SomeCustomPlugin(WebvizPluginABC):
@@ -44,7 +45,8 @@ class SomeCustomPlugin(WebvizPluginABC):
         full_path = os.path.realpath(__file__)
         path = os.path.dirname(full_path) + "//..//..//..//..//Debug//RVWeb.exe"
 
-        args = [path,
+        args = [
+            path,
         self.root,
         self.benchmark,
         self.folder2d,
@@ -61,12 +63,14 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.allModels,
         self.highlightedModels]
 
-        sub.run(args)
+        #sub.run(args)
 
+        rvConfig = Configuration(args)
+        
 
     @property
     def layout(self):
-        return html.Div(
+        return (html.Div(
             [self.root,
         self.benchmark,
         self.folder2d,
@@ -80,4 +84,5 @@ class SomeCustomPlugin(WebvizPluginABC):
         self.iterations,
         self.allModels,
         self.highlightedModels]
-        )
+        ), html.Img('./assets/sapatinho.png')
+)

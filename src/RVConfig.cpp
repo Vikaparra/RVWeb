@@ -1,6 +1,6 @@
 #include "RVConfig.hpp"
 
-Configuration::Configuration(char **configs): clusteringConfig(configs[7],configs[8],stoi(configs[9]),stoi(configs[10]),stoi(configs[7]))
+Configuration::Configuration(char **configs): clusteringConfig(configs[7],configs[8],stoi(configs[9]),stoi(configs[10]),stoi(configs[11]))
 {
     this->root = configs[1];
     this->benchmark = configs[2];

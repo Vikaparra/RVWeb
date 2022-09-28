@@ -1,15 +1,10 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as fh:
-    LONG_DESCRIPTION = fh.read()
-
 TESTS_REQUIRE = ["selenium~=3.141", "pylint", "mock", "black", "bandit"]
 
 setup(
     name="webviz_plugin_boilerplate",
     description="Webviz plugin boilerplate with example plugins",
-    long_description=LONG_DESCRIPTION,
-    long_description_content_type="text/markdown",
     packages=find_packages(exclude=["tests"]),
     entry_points={
         "webviz_config_plugins": [

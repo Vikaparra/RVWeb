@@ -37,4 +37,5 @@ public:
     void regexSecond(string strats, string type);
     vector<WellList> createWellList();
     void settingDrawConfigs(vector<WellList> estrategias);
+    void loadStaticMapModels(string propertyName, string propertyFile, int indexOfValue);
 };
