@@ -15,7 +15,7 @@
 ########################
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/usr/lib64/cmake/Boost-1.79.0
+Boost_DIR:PATH=/usr/lib64/cmake/Boost-1.80.0
 
 Boost_FILESYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/libboost_filesystem.so.1.79.0
 
@@ -234,19 +234,19 @@ RVWeb_IS_TOP_LEVEL:STATIC=ON
 RVWeb_SOURCE_DIR:STATIC=/home/izael/Documents/git/RVWeb
 
 //The directory containing a CMake configuration file for boost_atomic.
-boost_atomic_DIR:PATH=/usr/lib64/cmake/boost_atomic-1.79.0
+boost_atomic_DIR:PATH=/usr/lib64/cmake/boost_atomic-1.80.0
 
 //The directory containing a CMake configuration file for boost_filesystem.
-boost_filesystem_DIR:PATH=/usr/lib64/cmake/boost_filesystem-1.79.0
+boost_filesystem_DIR:PATH=/usr/lib64/cmake/boost_filesystem-1.80.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/usr/lib64/cmake/boost_headers-1.79.0
+boost_headers_DIR:PATH=/usr/lib64/cmake/boost_headers-1.80.0
 
 //The directory containing a CMake configuration file for boost_iostreams.
-boost_iostreams_DIR:PATH=/usr/lib64/cmake/boost_iostreams-1.79.0
+boost_iostreams_DIR:PATH=/usr/lib64/cmake/boost_iostreams-1.80.0
 
 //The directory containing a CMake configuration file for boost_serialization.
-boost_serialization_DIR:PATH=/usr/lib64/cmake/boost_serialization-1.79.0
+boost_serialization_DIR:PATH=/usr/lib64/cmake/boost_serialization-1.80.0
 
 
 ########################
@@ -266,7 +266,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=24
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -401,7 +401,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib64/cmake/Boost-1.79.0/BoostConfig.cmake][cfound components: iostreams filesystem serialization ][v1.79.0(1.74.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib64/cmake/Boost-1.80.0/BoostConfig.cmake][cfound components: iostreams filesystem serialization ][v1.80.0(1.74.0)]
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //ADVANCED property for variable: boost_atomic_DIR
